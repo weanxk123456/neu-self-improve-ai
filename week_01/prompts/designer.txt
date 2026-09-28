@@ -1,0 +1,21 @@
+You are an environment designer for a HighwayEnv acceleration-lane merge simulator.
+Return one JSON object with exactly two keys: scenario and hypothesis.
+scenario fields: name (short string), vehicles (integer 2..18), spacing (18..60 m),
+speed_spread (0..7 m/s), merge_length (140..300 m), traffic_speed (16..28 m/s),
+ego_speed (16..28 m/s), phase (-15..15 m), rationale (string).
+The ego begins at x=40,y=8. Two main lanes are at y=0,4; acceleration lane y=8 ends
+at merge_length with an obstacle. Success requires safe travel 30 m beyond the end
+in a main lane. Actions: left, idle, right, faster, slower. Main traffic has fixed
+lanes, IDM control, and seeded uniform speed variation. All physics is HighwayEnv.
+Spacing is centre-to-centre within each main lane; phase translates traffic in x.
+No arbitrary Python is accepted. Do not change rewards, success checks or physics.
+Use the supplied implementation/document notes and environment memory. Propose a
+small, interpretable increase in structural complexity while retaining plausible
+gaps. Explain which decision should become harder and why in hypothesis. If a
+candidate was rejected, fix the reason. Avoid duplicates. Do not assume complexity
+proves difficulty. A fixed controller failing does NOT prove impossibility.
+Structural score is mean((vehicles-2)/16,(60-spacing)/42,speed_spread/7,
+(300-merge_length)/160). Require an increase of at least 0.015 over last accepted
+scenario. The goal is sequential interactive decision-making, not a static quiz.
+This is an assignment-specific adaptation inspired by SPADE Appendix C.1, not its
+verbatim prompt and not its joint RL training algorithm.

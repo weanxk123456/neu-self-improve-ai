@@ -1,0 +1,162 @@
+[
+  {
+    "scenario": {
+      "name": "balanced_initial_merge",
+      "vehicles": 6,
+      "spacing": 38,
+      "speed_spread": 2.0,
+      "merge_length": 220,
+      "traffic_speed": 22,
+      "ego_speed": 20,
+      "phase": 0,
+      "rationale": "Initial baseline establishing a moderate-density merge scenario with 38m inter-vehicle spacing and moderate speed differential."
+    },
+    "complexity": 0.3899,
+    "evaluation": {
+      "rule": {
+        "success": 0.85,
+        "crashed": 0.15,
+        "offroad": 0.0,
+        "seconds": 10.925,
+        "return": 0.4915,
+        "n": 20
+      },
+      "random": {
+        "success": 0.1,
+        "crashed": 0.9,
+        "offroad": 0.0,
+        "seconds": 4.3,
+        "return": -0.876,
+        "n": 20
+      }
+    }
+  },
+  {
+    "scenario": {
+      "name": "tighter_variable_gap_merge",
+      "vehicles": 7,
+      "spacing": 36,
+      "speed_spread": 2.5,
+      "merge_length": 210,
+      "traffic_speed": 22,
+      "ego_speed": 19,
+      "phase": 4,
+      "rationale": "Slightly tightens spacing to 36m, introduces higher traffic speed variability (2.5 m/s spread), and trims merge lane to 210m to create tighter moving gaps."
+    },
+    "complexity": 0.4509,
+    "evaluation": {
+      "rule": {
+        "success": 1.0,
+        "crashed": 0.0,
+        "offroad": 0.0,
+        "seconds": 10.15,
+        "return": 0.807,
+        "n": 20
+      },
+      "random": {
+        "success": 0.35,
+        "crashed": 0.65,
+        "offroad": 0.0,
+        "seconds": 9.5,
+        "return": -0.48,
+        "n": 20
+      }
+    }
+  },
+  {
+    "scenario": {
+      "name": "compressed_dynamic_gap_merge",
+      "vehicles": 8,
+      "spacing": 34,
+      "speed_spread": 3.0,
+      "merge_length": 200,
+      "traffic_speed": 23,
+      "ego_speed": 19,
+      "phase": -3,
+      "rationale": "Increases vehicle count to 8, decreases spacing to 34m, expands speed spread to 3.0 m/s, and shortens the ramp to 200m to introduce dynamic, differential gap expansion and contraction."
+    },
+    "complexity": 0.5119,
+    "evaluation": {
+      "rule": {
+        "success": 1.0,
+        "crashed": 0.0,
+        "offroad": 0.0,
+        "seconds": 11.275,
+        "return": 0.7844999999999999,
+        "n": 20
+      },
+      "random": {
+        "success": 0.25,
+        "crashed": 0.75,
+        "offroad": 0.05,
+        "seconds": 8.65,
+        "return": -0.663,
+        "n": 20
+      }
+    }
+  },
+  {
+    "scenario": {
+      "name": "high_flux_short_ramp_merge",
+      "vehicles": 9,
+      "spacing": 32,
+      "speed_spread": 3.5,
+      "merge_length": 190,
+      "traffic_speed": 23,
+      "ego_speed": 18,
+      "phase": 6,
+      "rationale": "Increases traffic density to 9 vehicles with 32m spacing, broadens speed spread to 3.5 m/s, and reduces merge length to 190m to produce tightly constrained dynamic merge opportunities."
+    },
+    "complexity": 0.5729,
+    "evaluation": {
+      "rule": {
+        "success": 1.0,
+        "crashed": 0.0,
+        "offroad": 0.0,
+        "seconds": 11.25,
+        "return": 0.7849999999999999,
+        "n": 20
+      },
+      "random": {
+        "success": 0.15,
+        "crashed": 0.85,
+        "offroad": 0.0,
+        "seconds": 6.825,
+        "return": -0.8265,
+        "n": 20
+      }
+    }
+  },
+  {
+    "scenario": {
+      "name": "narrow_window_dynamic_merge",
+      "vehicles": 10,
+      "spacing": 30,
+      "speed_spread": 4.0,
+      "merge_length": 180,
+      "traffic_speed": 23,
+      "ego_speed": 18,
+      "phase": -5,
+      "rationale": "Increases vehicle count to 10 with 30m spacing and a 4.0 m/s speed spread, while shortening the merge lane to 180m to challenge rapid gap selection under substantial relative velocity variance."
+    },
+    "complexity": 0.6339,
+    "evaluation": {
+      "rule": {
+        "success": 0.9,
+        "crashed": 0.1,
+        "offroad": 0.0,
+        "seconds": 9.3,
+        "return": 0.624,
+        "n": 20
+      },
+      "random": {
+        "success": 0.1,
+        "crashed": 0.9,
+        "offroad": 0.0,
+        "seconds": 4.125,
+        "return": -0.8724999999999999,
+        "n": 20
+      }
+    }
+  }
+]

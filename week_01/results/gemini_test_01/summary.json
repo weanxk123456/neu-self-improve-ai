@@ -1,0 +1,34 @@
+[
+  {
+    "scenario": {
+      "name": "baseline_dynamic_merge",
+      "vehicles": 8,
+      "spacing": 38.0,
+      "speed_spread": 2.5,
+      "merge_length": 220.0,
+      "traffic_speed": 22.0,
+      "ego_speed": 22.0,
+      "phase": 0.0,
+      "rationale": "Initial balanced scenario providing realistic traffic headway (~1.7s) and mild speed variation along a 180m acceleration strip, requiring dynamic gap selection without extreme congestion."
+    },
+    "complexity": 0.439,
+    "evaluation": {
+      "rule": {
+        "success": 1.0,
+        "crashed": 0.0,
+        "offroad": 0.0,
+        "seconds": 12.05,
+        "return": 0.7689999999999999,
+        "n": 20
+      },
+      "random": {
+        "success": 0.2,
+        "crashed": 0.8,
+        "offroad": 0.0,
+        "seconds": 9.35,
+        "return": -0.7769999999999999,
+        "n": 20
+      }
+    }
+  }
+]

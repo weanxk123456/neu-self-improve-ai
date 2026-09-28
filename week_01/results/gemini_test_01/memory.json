@@ -1,0 +1,39 @@
+[
+  {
+    "round": 0,
+    "attempt": 0,
+    "accepted": true,
+    "mode": "llm",
+    "scenario": {
+      "name": "baseline_dynamic_merge",
+      "vehicles": 8,
+      "spacing": 38.0,
+      "speed_spread": 2.5,
+      "merge_length": 220.0,
+      "traffic_speed": 22.0,
+      "ego_speed": 22.0,
+      "phase": 0.0,
+      "rationale": "Initial balanced scenario providing realistic traffic headway (~1.7s) and mild speed variation along a 180m acceleration strip, requiring dynamic gap selection without extreme congestion."
+    },
+    "hypothesis": "With traffic moving near ego speed and heterogeneous speeds across vehicles, the ego agent cannot reliably merge blindly at initial entry; it must observe the gap dynamics in lane 1 and decide between accelerating to merge ahead of the nearest vehicle or easing off to merge into the trailing pocket.",
+    "complexity": 0.439,
+    "evaluation": {
+      "rule": {
+        "success": 1.0,
+        "crashed": 0.0,
+        "offroad": 0.0,
+        "seconds": 12.0625,
+        "return": 0.76875,
+        "n": 8
+      },
+      "random": {
+        "success": 0.125,
+        "crashed": 0.875,
+        "offroad": 0.125,
+        "seconds": 7.1875,
+        "return": -0.8837499999999999,
+        "n": 8
+      }
+    }
+  }
+]

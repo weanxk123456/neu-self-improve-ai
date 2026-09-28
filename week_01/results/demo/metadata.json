@@ -1,0 +1,39 @@
+{
+  "mode": "demo",
+  "model": null,
+  "python": "3.12.14",
+  "highway_env": "1.12.1",
+  "design_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "heldout_seeds": [
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119
+  ],
+  "disclaimer": "SPADE-inspired constrained designer loop, no training or hint-regret. Demo is not LLM."
+}

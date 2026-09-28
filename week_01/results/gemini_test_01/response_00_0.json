@@ -1,0 +1,26 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "{\n  \"scenario\": {\n    \"name\": \"baseline_dynamic_merge\",\n    \"vehicles\": 8,\n    \"spacing\": 38.0,\n    \"speed_spread\": 2.5,\n    \"merge_length\": 220.0,\n    \"traffic_speed\": 22.0,\n    \"ego_speed\": 22.0,\n    \"phase\": 0.0,\n    \"rationale\": \"Initial balanced scenario providing realistic traffic headway (~1.7s) and mild speed variation along a 180m acceleration strip, requiring dynamic gap selection without extreme congestion.\"\n  },\n  \"hypothesis\": \"With traffic moving near ego speed and heterogeneous speeds across vehicles, the ego agent cannot reliably merge blindly at initial entry; it must observe the gap dynamics in lane 1 and decide between accelerating to merge ahead of the nearest vehicle or easing off to merge into the trailing pocket.\"\n}",
+        "extra_content": {
+          "google": {
+            "thought_signature": "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"
+          }
+        },
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1790552708,
+  "id": "gKq5atOhEvP6-8YPg-Ly6QQ",
+  "model": "gemini-3.8-flash",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 207,
+    "prompt_tokens": 472,
+    "total_tokens": 1374
+  }
+}

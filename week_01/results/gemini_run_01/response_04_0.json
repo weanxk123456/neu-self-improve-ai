@@ -1,0 +1,26 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "{\n  \"scenario\": {\n    \"name\": \"narrow_window_dynamic_merge\",\n    \"vehicles\": 10,\n    \"spacing\": 30,\n    \"speed_spread\": 4.0,\n    \"merge_length\": 180,\n    \"traffic_speed\": 23,\n    \"ego_speed\": 18,\n    \"phase\": -5,\n    \"rationale\": \"Increases vehicle count to 10 with 30m spacing and a 4.0 m/s speed spread, while shortening the merge lane to 180m to challenge rapid gap selection under substantial relative velocity variance.\"\n  },\n  \"hypothesis\": \"With spacing reduced to 30m and speed spread elevated to 4.0 m/s, vehicles in the adjacent lane experience pronounced relative closing and opening rates. The 180m ramp affords the ego only 140m of roadway to overcome its initial 5 m/s speed deficit (18 m/s vs 23 m/s), demanding fast identification of dynamic headway divergence and decisive throttle commitment to merge safely before the ramp terminates.\"\n}",
+        "extra_content": {
+          "google": {
+            "thought_signature": "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"
+          }
+        },
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1790552760,
+  "id": "s6q5apL0DpLGjMcPvaqlmQI",
+  "model": "gemini-3.8-flash",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 255,
+    "prompt_tokens": 1924,
+    "total_tokens": 3119
+  }
+}

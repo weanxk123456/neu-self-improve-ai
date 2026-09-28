@@ -1,0 +1,26 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "{\n  \"scenario\": {\n    \"name\": \"compressed_dynamic_gap_merge\",\n    \"vehicles\": 8,\n    \"spacing\": 34,\n    \"speed_spread\": 3.0,\n    \"merge_length\": 200,\n    \"traffic_speed\": 23,\n    \"ego_speed\": 19,\n    \"phase\": -3,\n    \"rationale\": \"Increases vehicle count to 8, decreases spacing to 34m, expands speed spread to 3.0 m/s, and shortens the ramp to 200m to introduce dynamic, differential gap expansion and contraction.\"\n  },\n  \"hypothesis\": \"With tighter 34m nominal spacing and an increased speed spread of 3.0 m/s, adjacent mainline vehicles will dynamically compress and stretch gaps as they interact. Starting at 19 m/s against 23 m/s traffic on a shortened 200m ramp forces the ego to make an earlier, more decisive commitment to either accelerate hard into an opening gap ahead or yield for a trailing vehicle, significantly penalizing hesitation.\"\n}",
+        "extra_content": {
+          "google": {
+            "thought_signature": "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"
+          }
+        },
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1790552745,
+  "id": "pKq5atm3Jrbo-8YPhcagMA",
+  "model": "gemini-3.8-flash",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 251,
+    "prompt_tokens": 1161,
+    "total_tokens": 2510
+  }
+}

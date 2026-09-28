@@ -1,0 +1,187 @@
+[
+  {
+    "round": 0,
+    "attempt": 0,
+    "accepted": true,
+    "mode": "demo",
+    "scenario": {
+      "name": "demo_00_0",
+      "vehicles": 6,
+      "spacing": 45.0,
+      "speed_spread": 0.0,
+      "merge_length": 260.0,
+      "traffic_speed": 22.0,
+      "ego_speed": 20.0,
+      "phase": 0.0,
+      "rationale": "Sparse traffic on two main lanes."
+    },
+    "hypothesis": "Sparse traffic on two main lanes.",
+    "complexity": 0.2143,
+    "evaluation": {
+      "rule": {
+        "success": 1.0,
+        "crashed": 0.0,
+        "offroad": 0.0,
+        "seconds": 13.25,
+        "return": 0.745,
+        "n": 8
+      },
+      "random": {
+        "success": 0.125,
+        "crashed": 0.875,
+        "offroad": 0.0,
+        "seconds": 4.0,
+        "return": -0.8200000000000001,
+        "n": 8
+      }
+    }
+  },
+  {
+    "round": 1,
+    "attempt": 0,
+    "accepted": true,
+    "mode": "demo",
+    "scenario": {
+      "name": "demo_01_0",
+      "vehicles": 8,
+      "spacing": 45.0,
+      "speed_spread": 0.0,
+      "merge_length": 260.0,
+      "traffic_speed": 22.0,
+      "ego_speed": 20.0,
+      "phase": 0.0,
+      "rationale": "Offline fixture mutation: vehicles; previous rule success=1.00"
+    },
+    "hypothesis": "Offline fixture mutation: vehicles; previous rule success=1.00",
+    "complexity": 0.2455,
+    "evaluation": {
+      "rule": {
+        "success": 1.0,
+        "crashed": 0.0,
+        "offroad": 0.0,
+        "seconds": 13.9375,
+        "return": 0.73125,
+        "n": 8
+      },
+      "random": {
+        "success": 0.25,
+        "crashed": 0.75,
+        "offroad": 0.0,
+        "seconds": 8.875,
+        "return": -0.6675,
+        "n": 8
+      }
+    }
+  },
+  {
+    "round": 2,
+    "attempt": 0,
+    "accepted": true,
+    "mode": "demo",
+    "scenario": {
+      "name": "demo_02_0",
+      "vehicles": 8,
+      "spacing": 40.0,
+      "speed_spread": 0.0,
+      "merge_length": 260.0,
+      "traffic_speed": 22.0,
+      "ego_speed": 20.0,
+      "phase": 0.0,
+      "rationale": "Offline fixture mutation: spacing; previous rule success=1.00"
+    },
+    "hypothesis": "Offline fixture mutation: spacing; previous rule success=1.00",
+    "complexity": 0.2753,
+    "evaluation": {
+      "rule": {
+        "success": 1.0,
+        "crashed": 0.0,
+        "offroad": 0.0,
+        "seconds": 14.0,
+        "return": 0.73,
+        "n": 8
+      },
+      "random": {
+        "success": 0.125,
+        "crashed": 0.875,
+        "offroad": 0.0,
+        "seconds": 8.5625,
+        "return": -0.91125,
+        "n": 8
+      }
+    }
+  },
+  {
+    "round": 3,
+    "attempt": 0,
+    "accepted": true,
+    "mode": "demo",
+    "scenario": {
+      "name": "demo_03_0",
+      "vehicles": 8,
+      "spacing": 40.0,
+      "speed_spread": 1.5,
+      "merge_length": 260.0,
+      "traffic_speed": 22.0,
+      "ego_speed": 20.0,
+      "phase": 0.0,
+      "rationale": "Offline fixture mutation: speed_spread; previous rule success=1.00"
+    },
+    "hypothesis": "Offline fixture mutation: speed_spread; previous rule success=1.00",
+    "complexity": 0.3289,
+    "evaluation": {
+      "rule": {
+        "success": 1.0,
+        "crashed": 0.0,
+        "offroad": 0.0,
+        "seconds": 14.0625,
+        "return": 0.72875,
+        "n": 8
+      },
+      "random": {
+        "success": 0.25,
+        "crashed": 0.75,
+        "offroad": 0.0,
+        "seconds": 8.5625,
+        "return": -0.66125,
+        "n": 8
+      }
+    }
+  },
+  {
+    "round": 4,
+    "attempt": 0,
+    "accepted": true,
+    "mode": "demo",
+    "scenario": {
+      "name": "demo_04_0",
+      "vehicles": 8,
+      "spacing": 40.0,
+      "speed_spread": 1.5,
+      "merge_length": 240.0,
+      "traffic_speed": 22.0,
+      "ego_speed": 20.0,
+      "phase": 0.0,
+      "rationale": "Offline fixture mutation: merge_length; previous rule success=1.00"
+    },
+    "hypothesis": "Offline fixture mutation: merge_length; previous rule success=1.00",
+    "complexity": 0.3601,
+    "evaluation": {
+      "rule": {
+        "success": 1.0,
+        "crashed": 0.0,
+        "offroad": 0.0,
+        "seconds": 13.0,
+        "return": 0.75,
+        "n": 8
+      },
+      "random": {
+        "success": 0.375,
+        "crashed": 0.625,
+        "offroad": 0.0,
+        "seconds": 8.25,
+        "return": -0.405,
+        "n": 8
+      }
+    }
+  }
+]

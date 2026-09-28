@@ -1,0 +1,26 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "{\"scenario\": {\"name\": \"balanced_initial_merge\", \"vehicles\": 6, \"spacing\": 38, \"speed_spread\": 2.0, \"merge_length\": 220, \"traffic_speed\": 22, \"ego_speed\": 20, \"phase\": 0, \"rationale\": \"Initial baseline establishing a moderate-density merge scenario with 38m inter-vehicle spacing and moderate speed differential.\"}, \"hypothesis\": \"The ego vehicle starts slightly slower than mainline traffic (20 m/s vs 22 m/s) with a 220m merge length, requiring it to decide whether to accelerate into an opening ahead or yield and merge behind the adjacent mainline vehicle before ramp termination.\"}",
+        "extra_content": {
+          "google": {
+            "thought_signature": "EuUKCuIKAWkUfROgWMEHOobIBvZGYnx7uyrBG8AmlWMg8OOnKxfoV7wSTRUA3wk4HhjQPubscut38ESKI4hCjq+4t9MTYmrAj843Xaako1naqHtXOJJJl4024Ar5XP89U5rrRUZxhUOJPZMS3rCuStTpXQS2jOJrUV3trhKj8s1PuaEom29lOvMfLEQhFUlekA8Im/S2kh5m6KRQnMjpzKVdV1RzXEXLU+XCsT9I3rpdKw5Fa5rtOT9BJOCDLehlIi3a1I9kth31jCaUrggsF5wkfo4n53rShiNXaL4LKfEQrJZ88j5Xy2MotgDhynbAWMnsGHIGf1Bn//QYsKv6UklDzvigodYJWq/Tx3SrDwfXobPaNghdwcieFOCdejZpsHFNBSt2Rx8Jp3cDkqn7JUnSrjFGZtIZtv7OPrsj1df6SVRjDeh/0rhWfv8h7vF7SIh58wYJqnavS5rUL65dq+CnDM7+K4RDooBwz97hSlXwwttsBGFdMq/wIoBC7hQwT4nK/7dmDWya5AIYpAfcUlqiJZoXLlCMMyEKpWVnwmq0m1o7DwF4BogHoPXxkKeDN84YrGfZTtTJit7Ya2JsPRurFkBzUvbzBronfzWHlT7mg1YqP7nn8fuGuODotRP7XJPWQnfkRlpOLT0HK1vnid2x3hq8cqa3ZaR6X/i8fYulqUDeYRHFtt1ls+G46LdQCkhfZcj+EBUWFYi0zGqyJjwu/iBKVU2WrQ1qmI88DFJ0ANqlhrq5SHDElTf+M9V/2eVf/KQirJ4RT1vERgBmSJkUDtdBh1wGsv0OWT8UqB0rGUd8vR8Gcfyg2QaVnVvls6YMY93M3GTWlN/bergp7uH5ru5aT996GMFw0yQF8dk2nVpWejgyNKtUNTYOoq61CZnCJZhyoaqKm3GUcqLoHIV2U2jjiO+ttKwVtaY8T2iKoC2cntZfDaGy5MQTFMERoSB+LG+5j+umtZkLmPAroMvrjwgDQq7KCyjBFzVu54EOegThBxSnP1nDxskyn3SC6pguywvlVUCHQPv6RVO5wv9yXNOZqkuL8IlezgmMSp6g2RWNpO78z5AUm8OhBR8DG/esSto8+EfNiRdXRX0ItUC0aHp5PP0CvrvfOQXoD2At+yuuTcnKJwUQpann3CGOalydGKIZg2Ij8HLI4gbGN7RjoYVu0o55zanoOwqyemdmqdQlTZvEPM8jJl7Aks2dHuujaaSQUpO/KpNOFByqUEf59/BENhHrZ48B8Lo53gGpDBZXZlK7X98PdIsds2K4VIEJO05PSqUInzRPAeMRvWbeSlATVh38WYQfICE3wGnkR7QFD5wEvNAVbLbM/iGXxWAo5XUG2v8jUf73yMybyaDEahaGEtZfp95nssOkKXGUmTJW3VHkDs/E6t/6qB3FXPNf91Wr74iAVBLW6/hz4rNYJe1UPbIVmDLj8XIwx570qMWrIx3bxn3X7Hz9EjxMRksTH+/k+lrK+zumv0EJMG2dQynDPqLAcIhrmK57neVdocrelc0Na8HN5WDOaSGzlS/ePpX5RbgXdzPtxRgqPvPUu82NkcaU76omBI7wmTqxUZafPPu6lSL67dXIZpzmqtMPVxXGuu0uwby6NFe6stnB5uHzVLy7SWGeWRWjSoxImii8XL0rsQDO8PWotl5LrfbtSSD4RcMQt/eeIeX7GpUozS3spiEyA9sLM4KX6DhVKirLrNJBZNQ8ARS968dsTDDqMjTPh9HmuRrArT79kW3N+qyp8SJcaTatqgJCa30Eft6CmytqO4eowmleRtdU05fTenXPZYWnBs/cR1W7QLQF0DiMbps4YmpToG616J2Pegrtl5vqsA=="
+          }
+        },
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1790552733,
+  "id": "mqq5ar3nG4ve_uMP2o_6yAI",
+  "model": "gemini-3.8-flash",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 160,
+    "prompt_tokens": 472,
+    "total_tokens": 1097
+  }
+}

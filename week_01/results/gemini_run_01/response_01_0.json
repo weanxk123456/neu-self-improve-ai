@@ -1,0 +1,26 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "{\n  \"scenario\": {\n    \"name\": \"tighter_variable_gap_merge\",\n    \"vehicles\": 7,\n    \"spacing\": 36,\n    \"speed_spread\": 2.5,\n    \"merge_length\": 210,\n    \"traffic_speed\": 22,\n    \"ego_speed\": 19,\n    \"phase\": 4,\n    \"rationale\": \"Slightly tightens spacing to 36m, introduces higher traffic speed variability (2.5 m/s spread), and trims merge lane to 210m to create tighter moving gaps.\"\n  },\n  \"hypothesis\": \"Reducing spacing from 38m to 36m while increasing speed spread to 2.5 m/s creates non-uniform gaps in the target lane. The ego vehicle starting at 19 m/s faces higher sequential pressure to identify whether the closing gap ahead or behind the neighboring vehicle is viable before the 210m ramp boundary, requiring more precise throttle management.\"\n}",
+        "extra_content": {
+          "google": {
+            "thought_signature": "ErMPCrAPAWkUfRN7oV3vV6MI0in4/oBDFl3d6w6rFB8K/FOy38VMVyfPhO/8R2ooLU+9UZ3AbXXthGzkVijmoVbvbaK1zbx6Yop4Cxfl1QXCK1GUM/EBnO94KZHEePY/Zfb8L8cnEHE9dFz744v0uRJl/rAfHmYe2EkjDuVxLldblXYCGc4nzeUjtHIV/LOQTS6qCAQbsBCQvc7Q5UifW8LGUc6a/p/L8FLElmLLf2QCXZcoSeoWhJ4AkxDCJJBnQ7LWu8k4O8xVmW46oQY3Uiy+pIw5grnuRSEXtarNmNvvFqYEtb2AU6OAaOfinNThPbYEpW+3XN8hit9i/4vtoAaq3K4MEJje5dESqDhVeC8qRWGzzv5QHXrf2MDT/A5kL3lva/Mnioa5Tq2M8PVgQCEPgxpC+GCbT8Bu+xkBgzsZJVYuXp+9YH8yauP79tdo1E+D2zXv/OS/mYnBcNmNLTlURxuJ1ZKczXKI710she8vZLAdztPDa3Dmmbyu2fG7KeOaZFRWyjbOnVHI9JTYvPt9DTfSu+qABg8R1nAXD/6cmjk3TQ0HIE+3W0HfmjMSNTi4bB0+NQUMwm6jOeEq1beJPtRH9z2VAqK+YEXpUknCZBZa75+RuwNHgVSg76cr4v3oUf9LRPBpaJjjXKI6QswOUnkDtx3Ebc4Z9R726ZqQMZA0bjeGrgO52DrNkHMPxP+nKiVV29h0Eh/lB0/y+yWZwsoW1pHubtwcYRw25bhDftv296ifhXwzvOCOeXwOKCiXMeWKRixJnlApAYO88Y1L+GQfSAg9T/Rj9ZxaqR3w4daIhRw2iCiEQq8Niz29G1YdyvRHIqAUDh6RCtvDf+iQv9iyJnCV8cHbTxg2fmS7lD5Bl8nMan39QWvw2q8rf4+4lw/FWxejQTsMGtGSEy+dWF/4NMl0GqB25/1YIP1LDgvX/N7YAwc3AzeUKaWXAUq87c+RN+8hkYCy/ahx1eRNazO5QVOwlK4w83b0R+VpH9CkjFH/jv3w9s1plYc+GsrlGILJ8zs0XLVtafzTkN4aQ2q3s25NWodQJSUtWm4AEO0m0Nnh2HPvOBS8WDWWtV0UWV3tSol6scIqQmQLImSPheROA8QX3dFdAyJTZdiY12FVecrVlw5xLaHmSpmPBZxUocxL1tt7ZoErG62kX/ggY/vC2qZMWnvCajHjHzl5oXk/HNXe9Ya1W8xtmzjw1FQI5RciUM/8aE6/iZfaKXgJ0r9KpCXu9sTUnCfYwu/uC0soQSOf8RpKJ6nviXSrgxeuGS9D1/DME/UhqK2IFytI/GNUy7XWt6xxof44brwlzNWiV4I8rxYpudmiWeZknxAtY4BXMb72IpggCqWeFgVqZ3MeHzqs4DNFzsh8PEcpJImYQu435OrKbNahnOhfGeZEBnGjVV4lxyjzKk9cE81R+JZIe3mOSIYIjlMkNrVXHUWdB4eltMyzj2Zv8NY6vbHUsfznfaZJFKZ33jW3xl41hkFxYc2rQeENQRprWySn4NyTcCtX5gjXca8ORbL+7dX6qRFRskbvLYOFvbtY/o9OE6k47e1enYfVbvCAGh+ciYJR36tJBfzhrohGihAUHgk6ZdqbQJRpREH99dQP6NAFpZWmtrbMPgaIkA42wFYS9CjNPz+higqShFtQRAJoxw5Kj9+SHr+aq9MMjurWYozMqnM6QpCWq/fanK+iqRx8A/V0bWVAaIHEv2w+n0VGv6BjgEMPfWUL39t1pSqUqF2rBGY6h+Mj2VK3AFnl0EZDlWIMeV1ajYkYruY/BwrCJsdWc58PyMDu7gst/9NY2oF9nIlHjW7Oz8vv8sJZkbH6k5OOAMUIw2GcmOGha22ubVqWYG8d2d865EpZYXFKCwXw+7FOaoLqbIY7ezlLXJd3N0CJ2YqCzqY/yL286i8hGik6APCLlLyf6/SkAwJtx2Kc17W2BkUuvNeVnQ6M/CSp8WxfxE+jptdwUuDl2ggY0PAjP9QATC0BtewxUTAxzxRzEYqcpk8ASZMnenOvM1Pguvz7KJoXsHcBijf0sS3JaKgBiYb4a3cra8P5JqEjpnETDHg1F2T6AeWN1jMVJ/Hrof9PsK4CBzgg6h3jy5LCiNabaUQqWn4Z22CWXQJclTxRmQbfsMJlMRGQrDSfmragmlnyw3gZZd92sZvPqkgOiwlH8bHIXVJOLa2RFlwlZjboQ3JRrDzbV6NcQkv0dgkiPVEyzOz+0drzLDHJg7akej9j+SSbLuI0IF9pMRVF9nHxE8s5k0kA6m5K7xkSw0JeY5uy+LBH0J7pAIrl+7ViNewwJh6CCky/MBG7rTsaIAcl85S3BrcvB1nfVPuYeV6t0gUuoHzaonEAvQ58/Ph/7920p/YgERoxYYH7bi2NmpX9kKVLCUblS3EFZaUKSUO/851yWek4PNBfGr0o7csALSsIeZs169yAQ4JFUO0j5ousx3RHkkC781NRJ6QFo2cBzWhkNGcEPz2gH9vOukgmFHTUbdnR40NpTuGpbnu+EdoUs1uB9FVypf9VR/JFepVEvwEJwSfoYp0a6JoVa9jE7OI6tgwmOx/kyV18yMhng85EmNJskwQmhs5/srPMInUfTbVi43YU5v/PHXYVv3YIglmKHotW"
+          }
+        },
+        "role": "assistant"
+      }
+    }
+  ],
+  "created": 1790552738,
+  "id": "nqq5avy2K7Sb_uMPoO7KoQQ",
+  "model": "gemini-3.8-flash",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 232,
+    "prompt_tokens": 790,
+    "total_tokens": 1902
+  }
+}

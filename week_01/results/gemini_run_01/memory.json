@@ -1,0 +1,187 @@
+[
+  {
+    "round": 0,
+    "attempt": 0,
+    "accepted": true,
+    "mode": "llm",
+    "scenario": {
+      "name": "balanced_initial_merge",
+      "vehicles": 6,
+      "spacing": 38,
+      "speed_spread": 2.0,
+      "merge_length": 220,
+      "traffic_speed": 22,
+      "ego_speed": 20,
+      "phase": 0,
+      "rationale": "Initial baseline establishing a moderate-density merge scenario with 38m inter-vehicle spacing and moderate speed differential."
+    },
+    "hypothesis": "The ego vehicle starts slightly slower than mainline traffic (20 m/s vs 22 m/s) with a 220m merge length, requiring it to decide whether to accelerate into an opening ahead or yield and merge behind the adjacent mainline vehicle before ramp termination.",
+    "complexity": 0.3899,
+    "evaluation": {
+      "rule": {
+        "success": 0.875,
+        "crashed": 0.125,
+        "offroad": 0.0,
+        "seconds": 10.875,
+        "return": 0.5425,
+        "n": 8
+      },
+      "random": {
+        "success": 0.125,
+        "crashed": 0.875,
+        "offroad": 0.0,
+        "seconds": 3.875,
+        "return": -0.8175,
+        "n": 8
+      }
+    }
+  },
+  {
+    "round": 1,
+    "attempt": 0,
+    "accepted": true,
+    "mode": "llm",
+    "scenario": {
+      "name": "tighter_variable_gap_merge",
+      "vehicles": 7,
+      "spacing": 36,
+      "speed_spread": 2.5,
+      "merge_length": 210,
+      "traffic_speed": 22,
+      "ego_speed": 19,
+      "phase": 4,
+      "rationale": "Slightly tightens spacing to 36m, introduces higher traffic speed variability (2.5 m/s spread), and trims merge lane to 210m to create tighter moving gaps."
+    },
+    "hypothesis": "Reducing spacing from 38m to 36m while increasing speed spread to 2.5 m/s creates non-uniform gaps in the target lane. The ego vehicle starting at 19 m/s faces higher sequential pressure to identify whether the closing gap ahead or behind the neighboring vehicle is viable before the 210m ramp boundary, requiring more precise throttle management.",
+    "complexity": 0.4509,
+    "evaluation": {
+      "rule": {
+        "success": 1.0,
+        "crashed": 0.0,
+        "offroad": 0.0,
+        "seconds": 10.1875,
+        "return": 0.8062500000000001,
+        "n": 8
+      },
+      "random": {
+        "success": 0.125,
+        "crashed": 0.875,
+        "offroad": 0.125,
+        "seconds": 6.75,
+        "return": -0.875,
+        "n": 8
+      }
+    }
+  },
+  {
+    "round": 2,
+    "attempt": 0,
+    "accepted": true,
+    "mode": "llm",
+    "scenario": {
+      "name": "compressed_dynamic_gap_merge",
+      "vehicles": 8,
+      "spacing": 34,
+      "speed_spread": 3.0,
+      "merge_length": 200,
+      "traffic_speed": 23,
+      "ego_speed": 19,
+      "phase": -3,
+      "rationale": "Increases vehicle count to 8, decreases spacing to 34m, expands speed spread to 3.0 m/s, and shortens the ramp to 200m to introduce dynamic, differential gap expansion and contraction."
+    },
+    "hypothesis": "With tighter 34m nominal spacing and an increased speed spread of 3.0 m/s, adjacent mainline vehicles will dynamically compress and stretch gaps as they interact. Starting at 19 m/s against 23 m/s traffic on a shortened 200m ramp forces the ego to make an earlier, more decisive commitment to either accelerate hard into an opening gap ahead or yield for a trailing vehicle, significantly penalizing hesitation.",
+    "complexity": 0.5119,
+    "evaluation": {
+      "rule": {
+        "success": 1.0,
+        "crashed": 0.0,
+        "offroad": 0.0,
+        "seconds": 11.25,
+        "return": 0.785,
+        "n": 8
+      },
+      "random": {
+        "success": 0.0,
+        "crashed": 1.0,
+        "offroad": 0.25,
+        "seconds": 6.0625,
+        "return": -1.11125,
+        "n": 8
+      }
+    }
+  },
+  {
+    "round": 3,
+    "attempt": 0,
+    "accepted": true,
+    "mode": "llm",
+    "scenario": {
+      "name": "high_flux_short_ramp_merge",
+      "vehicles": 9,
+      "spacing": 32,
+      "speed_spread": 3.5,
+      "merge_length": 190,
+      "traffic_speed": 23,
+      "ego_speed": 18,
+      "phase": 6,
+      "rationale": "Increases traffic density to 9 vehicles with 32m spacing, broadens speed spread to 3.5 m/s, and reduces merge length to 190m to produce tightly constrained dynamic merge opportunities."
+    },
+    "hypothesis": "Tighter 32m spacing coupled with a 3.5 m/s speed spread generates heterogeneous headway variance among mainline vehicles. With the acceleration lane truncated to 190m (leaving 150m of travel distance) and starting at an initial deficit of 18 m/s against 23 m/s traffic, the ego vehicle must immediately decide whether to rapidly accelerate to exploit a transient opening ahead or brake early to merge into a trailing pocket, leaving virtually no time margin for delayed or indecisive throttle actions.",
+    "complexity": 0.5729,
+    "evaluation": {
+      "rule": {
+        "success": 1.0,
+        "crashed": 0.0,
+        "offroad": 0.0,
+        "seconds": 11.25,
+        "return": 0.785,
+        "n": 8
+      },
+      "random": {
+        "success": 0.0,
+        "crashed": 1.0,
+        "offroad": 0.125,
+        "seconds": 3.75,
+        "return": -1.065,
+        "n": 8
+      }
+    }
+  },
+  {
+    "round": 4,
+    "attempt": 0,
+    "accepted": true,
+    "mode": "llm",
+    "scenario": {
+      "name": "narrow_window_dynamic_merge",
+      "vehicles": 10,
+      "spacing": 30,
+      "speed_spread": 4.0,
+      "merge_length": 180,
+      "traffic_speed": 23,
+      "ego_speed": 18,
+      "phase": -5,
+      "rationale": "Increases vehicle count to 10 with 30m spacing and a 4.0 m/s speed spread, while shortening the merge lane to 180m to challenge rapid gap selection under substantial relative velocity variance."
+    },
+    "hypothesis": "With spacing reduced to 30m and speed spread elevated to 4.0 m/s, vehicles in the adjacent lane experience pronounced relative closing and opening rates. The 180m ramp affords the ego only 140m of roadway to overcome its initial 5 m/s speed deficit (18 m/s vs 23 m/s), demanding fast identification of dynamic headway divergence and decisive throttle commitment to merge safely before the ramp terminates.",
+    "complexity": 0.6339,
+    "evaluation": {
+      "rule": {
+        "success": 0.75,
+        "crashed": 0.25,
+        "offroad": 0.0,
+        "seconds": 8.375,
+        "return": 0.34249999999999997,
+        "n": 8
+      },
+      "random": {
+        "success": 0.0,
+        "crashed": 1.0,
+        "offroad": 0.25,
+        "seconds": 3.5,
+        "return": -1.06,
+        "n": 8
+      }
+    }
+  }
+]
