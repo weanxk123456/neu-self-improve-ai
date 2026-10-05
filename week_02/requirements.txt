@@ -1,0 +1,4 @@
+SQLAlchemy==2.0.43
+jupyter>=1.1,<2
+nbclient>=0.10,<1
+nbformat>=5.10,<6
