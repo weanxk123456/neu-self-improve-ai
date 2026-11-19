@@ -1,0 +1,13 @@
+torch>=2.4
+transformers>=4.51      # needs `logits_to_keep` and `stop_strings`
+peft>=0.14
+accelerate
+datasets
+pandas
+requests
+matplotlib
+numpy
+vllm>=0.8               # optional (--backend vllm); must be compatible with your torch/transformers
+# flash-attn            # optional, faster attention
+# pyserini              # optional, only for --retriever bm25 (needs Java 21)
+pytest
