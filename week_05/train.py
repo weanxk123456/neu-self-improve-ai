@@ -33,6 +33,10 @@ def parse_args():
     p.add_argument("--model", default="Qwen/Qwen2.5-3B-Instruct")
     p.add_argument("--out", required=True)
     p.add_argument("--seed", type=int, default=0)
+    p.add_argument("--task", choices=["search", "countdown"], default="search")
+    p.add_argument("--countdown_train_size", type=int, default=327680)
+    p.add_argument("--countdown_test_size", type=int, default=1024)
+    p.add_argument("--countdown_template", choices=["base", "qwen-instruct"], default="qwen-instruct")
     # data
     p.add_argument("--bamboogle", default="data/BambooglePrerelease.csv")
     p.add_argument("--train_file", default=None, help="optional JSONL instead of FlashRAG NQ+HotpotQA")
@@ -87,7 +91,10 @@ def append_jsonl(path, row):
 def main():
     args = parse_args()
     set_seed(args.seed)
-    out = Path(args.out); out.mkdir(parents=True, exist_ok=True)
+    out = Path(args.out)
+    if out.exists() and any(out.iterdir()):
+        raise ValueError("Output directory is not empty; choose a new --out to preserve results")
+    out.mkdir(parents=True, exist_ok=True)
     (out / "config.json").write_text(json.dumps(vars(args), indent=2))
     dev = "cuda"
     n_resp = 1 if args.algo == "ppo" else args.group_size
@@ -124,21 +131,44 @@ def main():
         if old.exists():
             shutil.rmtree(old)
 
-    retriever = make_retriever(args.retriever, args.retriever_url, args.topk)
+    is_countdown = args.task == "countdown"
+    if is_countdown:
+        from tinyzero_lora.task import load_data, prompt_ids as countdown_prompt, rollouts as countdown_rollouts, reward as countdown_reward
+    retriever = None if is_countdown else make_retriever(args.retriever, args.retriever_url, args.topk)
     rcfg = RolloutConfig(args.max_turns, args.max_tokens_per_turn, args.max_obs_tokens,
                          args.max_response_tokens, args.temperature)
-    test = load_bamboogle(args.bamboogle)
-    batches = infinite_batches(load_train(seed=args.seed, train_file=args.train_file), n_prompts, args.seed)
+    if is_countdown:
+        train_rows, test = load_data(args.countdown_train_size, args.countdown_test_size)
+    else:
+        train_rows, test = load_train(seed=args.seed, train_file=args.train_file), load_bamboogle(args.bamboogle)
+    if len(train_rows) < n_prompts or not test:
+        raise ValueError("Need at least prompts_per_step training rows and a nonempty test set")
+    batches = infinite_batches(train_rows, n_prompts, args.seed)
 
     def run_eval(step):
         sync_adapter()
-        em, recs = evaluate(test, generator, tok, "search", retriever, rcfg)
-        append_jsonl(out / "eval_log.jsonl", {"step": step, "bamboogle_em": em,
-                                               "avg_search": float(np.mean([r["n_search"] for r in recs]))})
-        (out / f"bamboogle_step{step}.json").write_text(json.dumps(recs, indent=1))
-        print(f"[eval] step {step}: Bamboogle EM = {em:.3f}", flush=True)
+        if is_countdown:
+            recs = []
+            for start in range(0, len(test), args.gen_batch_size):
+                chunk = test[start:start + args.gen_batch_size]
+                ts = countdown_rollouts([countdown_prompt(tok, ex, args.countdown_template) for ex in chunk],
+                                        generator, tok, args.max_response_tokens, 0.0)
+                recs.extend({"id": ex["id"], "response": t.response_text,
+                             "reward": countdown_reward(t, ex["golden_answers"]),
+                             "ground_truth": ex["golden_answers"]} for t, ex in zip(ts, chunk))
+            em = sum(r["reward"] == 1.0 for r in recs) / len(recs)
+        else:
+            em, recs = evaluate(test, generator, tok, "search", retriever, rcfg)
+        append_jsonl(out / "eval_log.jsonl", {"step": step, ("countdown_accuracy" if is_countdown else "bamboogle_em"): em,
+                                               "avg_search": float(np.mean([r.get("n_search", 0) for r in recs]))})
+        (out / f"{'countdown' if is_countdown else 'bamboogle'}_step{step}.json").write_text(json.dumps(recs, indent=1))
+        print(f"[eval] step {step}: {args.task} accuracy/EM = {em:.3f}", flush=True)
         if step > 0:
             policy.save_pretrained(out / f"adapter_step{step}")
+            tok.save_pretrained(out / f"adapter_step{step}")
+            if critic is not None:
+                critic.backbone.save_pretrained(out / f"critic_adapter_step{step}")
+                torch.save(critic.value_head.state_dict(), out / f"critic_value_head_step{step}.pt")
 
     run_eval(0)
     for step in range(1, args.steps + 1):
@@ -146,14 +176,18 @@ def main():
         exs = next(batches)
         prompt_ids, golds, groups = [], [], []
         for gi, ex in enumerate(exs):
-            ids = build_prompt_ids(tok, ex["question"], "search")
+            ids = countdown_prompt(tok, ex, args.countdown_template) if is_countdown else build_prompt_ids(tok, ex["question"], "search")
             for _ in range(n_resp):
                 prompt_ids.append(ids); golds.append(ex["golden_answers"]); groups.append(gi)
 
         # ---------------------------------------------------------------- rollout
         sync_adapter()
-        trajs = run_rollouts(prompt_ids, generator, retriever, tok, rcfg)
-        scores = torch.tensor([float(em_check(t.answer, g)) for t, g in zip(trajs, golds)], device=dev)
+        if is_countdown:
+            trajs = countdown_rollouts(prompt_ids, generator, tok, args.max_response_tokens, args.temperature)
+        else:
+            trajs = run_rollouts(prompt_ids, generator, retriever, tok, rcfg)
+        score_fn = countdown_reward if is_countdown else lambda t, g: float(em_check(t.answer, g))
+        scores = torch.tensor([score_fn(t, g) for t, g in zip(trajs, golds)], device=dev)
         batch = A.collate(trajs, tok.pad_token_id, dev)
         mask = batch["resp_mask"] if not args.no_mask else (batch["resp_attn"] > 0).float()
         batch["mask"] = mask
