@@ -1,0 +1,11 @@
+{
+  "mode": "flow-grpo",
+  "n": 125,
+  "judge": "em",
+  "accuracy_percent": 20.0,
+  "em_percent": 20.0,
+  "search_backend": "wiki",
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "adapter": "runs/full_20261124_003248/train/adapter_final",
+  "note": "Minimal reimplementation; see README for deviations from paper."
+}

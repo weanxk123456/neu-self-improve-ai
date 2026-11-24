@@ -1,0 +1,11 @@
+{
+  "mode": "direct",
+  "n": 125,
+  "judge": "em",
+  "accuracy_percent": 11.2,
+  "em_percent": 11.2,
+  "search_backend": "wiki",
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "adapter": null,
+  "note": "Minimal reimplementation; see README for deviations from paper."
+}
